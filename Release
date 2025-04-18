@@ -1,8 +1,9 @@
-Origin: Xplo8E Repo
-Label: Xplo8E
+Origin: Xplo8E's Repo
+Label: Xplo8E's Repo
 Suite: stable
 Version: 1.0
 Codename: ios
 Architectures: iphoneos-arm iphoneos-arm64
-Components: main rootful # Declare components: 'main' for rootless, 'rootful' for rootful
-Description: Xplo8E - Personal repo for jailbreak tweaks.
+Components: main rootful
+Description: Xplo8E's Repo - A repo hosting my own tweaks
+Icon: file://CydiaIcon.png
