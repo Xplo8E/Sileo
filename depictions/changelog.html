@@ -1,120 +1,338 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Changelog</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
- 
-  <script type="text/javascript" src="js/jquery.querystring.js"></script>
-  <script type="text/javascript" src="js/data-loader-engine.js"></script>
-  <script type="text/javascript" src="js/ios_version_check.js"></script>
-  <style>
-	@media (max-width: 767px) {
-		body{background:#efeff4!important;margin:0;padding:0;border:0;outline:0;box-sizing:border-box}
-	}  
-  </style>
-  <script type="text/javascript">
-  
-	bundleid = $.QueryString['p'];	
+    <title>Changelog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    var contentBlocks = 	{
-        "#changeLogList" : 
-			{"type":"articles"  
-				,"source"			:"changelog"
-				,"titleSource" 		:"version"
-				,"paragraphSource"	:"change"
-				,"titleElement"	    : "<h5>"
-				,"paragraphContainer": "<ul class='list-group'>"
-				,"paragraphElement"	: "<li class='list-group-item'>"
-
-			}
-	}
-    $( document ).ready(function() {
-        $.ajax({
-            type    : "GET",
-            dataType: "xml",
-            url     : (bundleid+"/changelog.xml"),
-            success : function(xml){
-            	data_loader_engine(contentBlocks,xml)
-            },
-			cache   : false,
-            error: function() {
-                $("#packageError").show();
-				$("#packageInformation").hide();
+    <script type="text/javascript" src="js/jquery.querystring.js"></script>
+    <script type="text/javascript" src="js/data-loader-engine.js"></script>
+    <script type="text/javascript" src="js/ios_version_check.js"></script>
+    <style>
+        @media (max-width: 767px) {
+            body {
+                background: #efeff4 !important;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                box-sizing: border-box
             }
-        }); //ajax
-		
-    }); // ready
-  </script>
-</head>
-<body>
-<br />
+        }
+    </style>
+    <script type="text/javascript">
 
-<div id="packageInformation">
-	<div class="container" id="changeLogList">
-	</div>
-</div>
-<div id="packageError" style="display:none">
-	<div class="container">
-	  <div class="alert alert-danger">
-		<strong>Oh snap!</strong> The package you are tying to view is not hosted on this repository. 
-	  </div>
-	</div>
-</div>
-<!-- REPO FOOTER -->
-<script type="text/javascript">
-    var repoContents =  {
-        "#repoFooterLinks" : 
-            {"type":"custom"
-                ,"source":"repo>footerlinks>link"
-                ,"render":function(element,source) {
-                    $.each(source, function(index,data) {
+        bundleid = $.QueryString['p'];
+
+        var contentBlocks = {
+            "#changeLogList":
+            {
+                "type": "articles"
+                , "source": "changelog"
+                , "titleSource": "version"
+                , "paragraphSource": "change"
+                , "titleElement": "<h5>"
+                , "paragraphContainer": "<ul class='list-group'>"
+                , "paragraphElement": "<li class='list-group-item'>"
+
+            }
+        }
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                dataType: "xml",
+                url: (bundleid + "/changelog.xml"),
+                success: function (xml) {
+                    data_loader_engine(contentBlocks, xml)
+                },
+                cache: false,
+                error: function () {
+                    $("#packageError").show();
+                    $("#packageInformation").hide();
+                }
+            }); //ajax
+
+        }); // ready
+    </script>
+</head>
+
+<style>
+    /* --- Dark Theme for Depictions --- */
+    body {
+        background-color: #1a1a1a !important;
+        /* Use !important to override potential inline styles */
+        color: #f0f0f0;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Remove default light background potentially added by scripts */
+    @media (max-width: 767px) {
+        body {
+            background: #1a1a1a !important;
+        }
+    }
+
+    .container {
+        /* Add some padding if needed */
+        /* padding-left: 10px; padding-right: 10px; */
+    }
+
+    h5 {
+        /* Section Headers */
+        color: #eee;
+        font-weight: 600;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #444;
+    }
+
+    .list-group-item p {
+        margin: 0;
+        /* Removes default top and bottom margins */
+    }
+
+    /* List Group Styling (used for descriptions, changes, dependencies, links) */
+    .list-group {
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        margin-bottom: 15px;
+        /* Add spacing between lists */
+    }
+
+    .list-group-item {
+        background-color: #2c2c2c;
+        /* Dark item background */
+        border: 1px solid #444;
+        /* Darker border */
+        color: #d0d0d0;
+        /* Light text for items */
+        padding: 15px;
+        /* Adjust padding */
+    }
+
+    /* Adjust first/last item borders for rounded corners */
+    .list-group-item:first-child {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .list-group-item:last-child {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        margin-bottom: 0;
+        /* Override Bootstrap */
+    }
+
+    /* Link Item Styling (Screenshots, Changelog, Contact links) */
+    .list-group-item.link-item,
+    a.list-group-item.link-item {
+        color: #58a6ff !important;
+        /* Bright blue for links */
+        font-weight: 400;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .list-group-item.link-item:hover,
+    a.list-group-item.link-item:hover {
+        background-color: #3a3a3a;
+        /* Slightly lighter dark on hover */
+        color: #80bfff !important;
+        /* Lighter blue on hover */
+        text-decoration: none;
+    }
+
+    /* Style the icons within links (like repo footer links) */
+    .list-group-item.link-item .fa,
+    .list-group-item.link-item .fab,
+    .list-group-item.link-item .fas,
+    .list-group-item.link-item .glyphicon {
+        /* Added glyphicon for repo.xml default */
+        margin-right: 10px;
+        color: #888;
+        /* Neutral icon color */
+        width: 20px;
+        /* Give icons consistent width */
+        text-align: center;
+    }
+
+    .list-group-item.link-item:hover .fa,
+    .list-group-item.link-item:hover .fab,
+    .list-group-item.link-item:hover .fas,
+    .list-group-item.link-item:hover .glyphicon {
+        color: #aaa;
+        /* Slightly lighter icon on hover */
+    }
+
+
+    /* Compatibility Alert Box */
+    .alert {
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        border-width: 1px;
+        border-style: solid;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .alert-success {
+        background-color: #1f3d2f;
+        /* Dark green */
+        border-color: #2a553e;
+        color: #a7d7b8;
+        /* Light green text */
+    }
+
+    .alert-danger {
+        background-color: #4d1f1f;
+        /* Dark red */
+        border-color: #6e2c2c;
+        color: #f8b4b4;
+        /* Light red text */
+    }
+
+    /* For unconfirmed/warning if you use it */
+    .alert-warning {
+        background-color: #4d3c1f;
+        /* Dark yellow/orange */
+        border-color: #6e542c;
+        color: #f8dcb4;
+        /* Light yellow/orange text */
+    }
+
+
+    /* Version Badge */
+    .badge {
+        background-color: #555;
+        color: #fff;
+        font-weight: 400;
+    }
+
+    /* Screenshots Page Specific */
+    .thumbnail {
+        background-color: #2c2c2c;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+    .thumbnail img {
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+
+    .thumbnail p {
+        color: #d0d0d0;
+        margin-bottom: 5px;
+    }
+
+    /* Package Header (Jumbotron shown outside Cydia) */
+    #packageHeader .jumbotron {
+        background-color: #232323;
+        color: #f0f0f0;
+        border-radius: 12px;
+    }
+
+    #packageHeader .jumbotron h1 {
+        color: #ffffff;
+    }
+
+    #packageHeader .jumbotron p {
+        color: #b0b0b0;
+    }
+
+
+    /* Error Message */
+    #packageError .alert-danger {
+        background-color: #4d1f1f;
+        border-color: #6e2c2c;
+        color: #f8b4b4;
+    }
+
+    #packageError .alert-danger strong {
+        color: #ffffff;
+    }
+
+    /* --- End Dark Theme --- */
+</style>
+
+<body>
+    <br />
+
+    <div id="packageInformation">
+        <div class="container" id="changeLogList">
+        </div>
+    </div>
+    <div id="packageError" style="display:none">
+        <div class="container">
+            <div class="alert alert-danger">
+                <strong>Oh snap!</strong> The package you are tying to view is not hosted on this repository.
+            </div>
+        </div>
+    </div>
+    <!-- REPO FOOTER -->
+    <script type="text/javascript">
+        var repoContents = {
+            "#repoFooterLinks":
+            {
+                "type": "custom"
+                , "source": "repo>footerlinks>link"
+                , "render": function (element, source) {
+                    $.each(source, function (index, data) {
                         var a = $("<a class='link-item list-group-item'>");
-                        a.attr("href",$(data).find('url').text());
+                        a.attr("href", $(data).find('url').text());
                         if ($(data).find('iconclass')) {
-                            var i =  $("<span>")
-                            i.attr("class",$(data).find('iconclass').text());
+                            var i = $("<span>")
+                            i.attr("class", $(data).find('iconclass').text());
                             console.log(i);
                             $(a).append(i);
-                        } 
+                        }
                         $(a).append($(data).find('name').text());
                         $(element).append(a);
                     }); //each
                 } //render
             }
-    }
-    $( document ).ready(function() {
-        $.ajax({type: "GET", dataType: "xml",url : ("../repo.xml"),cache: false,
-            success : function(xml){
-				data_loader_engine(repoContents,xml);
-				if (navigator.userAgent.search(/Cydia/) != -1) {
-					$("a").each(function() {
-						console.log($(this).text());
-						$(this).attr("target","_blank");
-					});
-				}
-			},
+        }
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET", dataType: "xml", url: ("../repo.xml"), cache: false,
+                success: function (xml) {
+                    data_loader_engine(repoContents, xml);
+                    if (navigator.userAgent.search(/Cydia/) != -1) {
+                        $("a").each(function () {
+                            console.log($(this).text());
+                            $(this).attr("target", "_blank");
+                        });
+                    }
+                },
 
-            error: function() {$("#contactInfo").hide()}
-        }); //ajax
-		
-		
-    }); // ready
+                error: function () { $("#contactInfo").hide() }
+            }); //ajax
 
-</script>
 
-<div id="contactInfo">
-	<div class="container">
-		<h5>CONTACT</h5>
-		<ul class="list-group" id="repoFooterLinks">
-		</ul>
-	</div>
-</div>
-<!-- REPO FOOTER ENDS -->
+        }); // ready
+
+    </script>
+
+    <div id="contactInfo">
+        <div class="container">
+            <h5>CONTACT</h5>
+            <ul class="list-group" id="repoFooterLinks">
+            </ul>
+        </div>
+    </div>
+    <!-- REPO FOOTER ENDS -->
 
 </body>
+
 </html>
