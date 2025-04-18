@@ -1,0 +1,70 @@
+Package: com.xplo8e.fridactl
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Maintainer: Xplo8E
+Installed-Size: 164
+Depends: mobilesubstrate, preferenceloader, firmware (>= 14.0)
+Filename: ./debs/rootless/com.xplo8e.fridactl_1.0.0_iphoneos-arm64_rootless.deb
+Size: 34306
+MD5sum: cee25e43f881d515795a672a3415d222
+SHA1: fcf26bc939d306a04cb92e1e7a432a3a3a410b93
+SHA256: 88d283a0518ec0287469e69bcfe0026268b916177380ba44792c6d065cd23897
+Section: Settings
+Description: Configure the listening port for the Frida server.
+Author: Xplo8E
+Depiction: https://xplo8e.github.io/Sileo/depictions/?p=com.xplo8e.fridactl
+Name: FridaCtl
+
+Package: com.xplo8e.fridactl
+Version: 1.0.0
+Architecture: iphoneos-arm
+Maintainer: Xplo8E
+Installed-Size: 324
+Depends: mobilesubstrate, preferenceloader, firmware (>= 14.0)
+Filename: ./debs/rootful/com.xplo8e.fridactl_1.0.0_iphoneos-arm_rootful.deb
+Size: 40920
+MD5sum: 1befa8b9f7fe9a3bda556a88babe8257
+SHA1: 1d20540a610079bf1ff347c323199dbe0ae6d88c
+SHA256: d6ded8438b890d136383644969dd6829b066b15ac56e388ac4b406fa1097d2a8
+Section: Settings
+Description: Configure the listening port for the Frida server.
+Author: Xplo8E
+Depiction: https://xplo8e.github.io/Sileo/depictions/?p=com.xplo8e.fridactl
+Name: FridaCtl
+
+Package: com.xplo8e.fridactrl
+Version: 1.0
+Architecture: iphoneos-arm64
+Maintainer: Xplo8E
+Installed-Size: 408
+Depends: re.frida.server
+Filename: ./debs/rootless/com.xplo8e.fridactrl_1.0_iphoneos-arm64_rootless.deb
+Size: 184030
+MD5sum: f2d72ecb1bb59babd9352a5a00977c82
+SHA1: b70424a7186fcc8a77eeda383cfce035c8674e62
+SHA256: 3d326fedd03cf108aeb2cea26758205c55c812ae0ee0cde55dc34f0959496161
+Section: Utilities
+Description: A simple utility to manage the Frida server port.
+Author: Xplo8E
+Depiction: https://xplo8e.github.io/Sileo/depictions/?p=com.xplo8e.fridactrl
+Icon: fridactrl.png
+Name: Frida Ctrl
+
+Package: com.xplo8e.fridactrl
+Version: 1.0
+Architecture: iphoneos-arm
+Maintainer: Xplo8E
+Installed-Size: 408
+Depends: re.frida.server
+Filename: ./debs/rootful/com.xplo8e.fridactrl_1.0_iphoneos-arm_rootful.deb
+Size: 183906
+MD5sum: 576c530883408f3e00c5bd758a8ec066
+SHA1: 66a7042735bd2135b0b3a9762ac33db9d031599d
+SHA256: b4091e9bb899844c3f3c4d24f0e9916306d1fd080b783c990f27003588d365f6
+Section: Utilities
+Description: A simple utility to manage the Frida server port.
+Author: Xplo8E
+Depiction: https://xplo8e.github.io/Sileo/depictions/?p=com.xplo8e.fridactrl
+Icon: fridactrl.png
+Name: Frida Ctrl
+
