@@ -7,11 +7,6 @@
         <package>mobilesubstrate</package> <package>preferenceloader</package> </dependencies>
 	<shortDescription>Configure the listening port for the Frida server.</shortDescription> <descriptionlist>
 		<description>Adds a preference pane in the Settings app to configure the network port for the Frida server.</description>
-        <description>Allows easy management of the Frida listening port.</description>
-		<description><![CDATA[
-        Note: Changes require restarting the Frida server process to take effect.
-		]]>
-		</description>
 	</descriptionlist>
 	<screenshots>
         </screenshots>
