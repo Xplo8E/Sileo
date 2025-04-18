@@ -1,0 +1,19 @@
+<package>
+	<id>com.xplo8e.fridactrl</id> <name>Frida Ctrl</name> <version>1.0</version> <compatibility>
+		<firmware>
+			<miniOS>13.0</miniOS> </firmware>
+	</compatibility>
+	<dependencies>
+        <package>re.frida.server</package> </dependencies>
+    <shortDescription>A simple utility to manage the Frida server port.</shortDescription> <descriptionlist>
+		<description>This application provides an easy way to change the network port used by the Frida server.</description>
+        <description>Helpful when needing to avoid port conflicts or run multiple instances.</description>
+		</descriptionlist>
+	<screenshots>
+        </screenshots>
+	<changelog>
+		<change>Initial release (v1.0)</change>
+	</changelog>
+	<links>
+        </links>
+</package>
